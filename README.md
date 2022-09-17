@@ -1,4 +1,4 @@
-# SolarHijriDateValidator :sunny:
+# SolarHijriDateValidator :sunny: :calendar:
 A project to validate a Solar Hijri date that uses a custom view to handle the validation logic.
 :fallen_leaf: 		:snowflake:  :cherry_blossom:  :parasol_on_ground: 
 
