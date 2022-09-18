@@ -137,9 +137,9 @@ class CustomViewDateValidator @JvmOverloads constructor(
         // on complete
         edtYear.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                            // Hide keyboard
-         /*       // it can be done in the fragment directly
-                binding.btnEditProfileSubmit.requestFocus()*/
+                // Hide keyboard
+                /*       // it can be done in the fragment directly
+                       binding.btnEditProfileSubmit.requestFocus()*/
             }
             false
         }
@@ -147,8 +147,25 @@ class CustomViewDateValidator @JvmOverloads constructor(
     }
 
     fun isDateValid(): Boolean {
+        var isDateValid = true
+        if (edtDay.text.toString().trim().isEmpty()) {
+            showError()
+            isDateValid = false
+        } else if (edtMonth.text.toString().trim().isEmpty()) {
+            showError()
+            isDateValid = false
+        } else if (edtYear.text.toString().trim().isEmpty()
+            || edtYear.text.toString().trim().length < 2
+        ) {
+            showError()
+            isDateValid = false
+        }
+        return isDateValid
+    }
 
-        return true
+    fun isDateBirthDay(): Boolean {
+
+        return false
     }
 
     fun showError() {
