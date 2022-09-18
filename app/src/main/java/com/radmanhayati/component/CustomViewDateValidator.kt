@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.radmanhayati.solarhijridatevalidator.R
+import com.radmanhayati.util.SolarCalendar
 
 class CustomViewDateValidator @JvmOverloads constructor(
     context: Context,
@@ -163,8 +164,16 @@ class CustomViewDateValidator @JvmOverloads constructor(
         return isDateValid
     }
 
-    fun isDateBirthDay(): Boolean {
-
+    fun isDateValidBirthDay(): Boolean {
+        val day = edtDay.toString().trim().toInt()
+        val month = edtMonth.toString().trim().toInt()
+        val year = edtYear.toString().trim().toInt()
+        if (month < 1 || month > 12 || day < 1 || month < 7 && day > 31 || month > 6 && day > 30) return false
+        //should be updated after years;
+        val localYear = year + 1300;
+        val milliSec = System.currentTimeMillis()
+        val currentYear: Int = SolarCalendar.getShamsiYearFromMillis(milliSec).toInt()
+        return localYear < currentYear - 18
         return false
     }
 
