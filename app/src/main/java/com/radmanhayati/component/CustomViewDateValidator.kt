@@ -178,11 +178,11 @@ class CustomViewDateValidator @JvmOverloads constructor(
     }
 
     fun showError() {
-
+        // TODO: implement your desired ui
     }
 
     fun removeError() {
-
+       // TODO: hide ui
     }
 
 }
